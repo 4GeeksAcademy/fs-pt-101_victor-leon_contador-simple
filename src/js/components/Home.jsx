@@ -1,26 +1,14 @@
 import React from 'react';
-import Digit from './Digit';
+import ClockIcon from './ClockIcon';
+import CounterDigits from './CounterDigits';
 
-const Home = (props) => {
-  const numDigits = 6;
-  const digits = props.counter.toString().padStart(numDigits, '0').split('');
-
-  return (
-    <div className="container">
-      <div className="row justify-content-center">
-        <div className="col-auto">
-          <div className="cell">
-            <i className="fa-solid fa-clock"></i>
-          </div>
-        </div>
-        {digits.map((digit, index) => (
-          <div className="col-auto" key={index}>
-            <Digit value={digit} />
-          </div>
-        ))}
-      </div>
+const Home = ({ counter }) => (
+  <div className="container">
+    <div className="row justify-content-center">
+      <ClockIcon />
+      <CounterDigits counter={counter} />
     </div>
-  );
-};
+  </div>
+);
 
 export default Home;
